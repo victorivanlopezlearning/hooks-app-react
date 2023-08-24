@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Message } from './Message';
 
 export const SimpleForm = () => {
 
@@ -34,7 +35,7 @@ export const SimpleForm = () => {
             onChange={onInputChange}
           />
         </div>
-        <div className="mb-3">
+        <div>
           <input
             type="email"
             className="form-control"
@@ -45,8 +46,9 @@ export const SimpleForm = () => {
             onChange={onInputChange}
           />
         </div>
-        {/* <button type="submit" class="btn btn-primary">Submit</button> */}
       </form>
+
+      {(username === 'Víctor Iván López') && <Message />}
 
     </div>
   )
