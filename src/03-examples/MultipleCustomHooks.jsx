@@ -1,5 +1,6 @@
 import { useCounter, useFetch } from "../hooks";
 import { LoadingQuote } from "./LoadingQuote";
+import { Quote } from "./Quote";
 
 export const MultipleCustomHooks = () => {
 
@@ -18,14 +19,7 @@ export const MultipleCustomHooks = () => {
             <LoadingQuote />
           )
           : (
-            <figure className="text-center mt-4">
-              <blockquote className="blockquote">
-                <p>{quote}</p>
-              </blockquote>
-              <figcaption className="blockquote-footer">
-                <cite title="Source Title">{author}</cite>
-              </figcaption>
-            </figure>
+            <Quote quote={quote} author={author} />
           )
       }
 
