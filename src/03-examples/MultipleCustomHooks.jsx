@@ -1,6 +1,5 @@
 import { useCounter, useFetch } from "../hooks";
-import { LoadingQuote } from "./LoadingQuote";
-import { Quote } from "./Quote";
+import { LoadingQuote, Quote } from "./";
 
 export const MultipleCustomHooks = () => {
 
@@ -15,12 +14,8 @@ export const MultipleCustomHooks = () => {
 
       {
         (isLoading)
-          ? (
-            <LoadingQuote />
-          )
-          : (
-            <Quote quote={quote} author={author} />
-          )
+          ? <LoadingQuote />
+          : <Quote quote={quote} author={author} />
       }
 
       <div className="d-flex justify-content-center mt-4">
