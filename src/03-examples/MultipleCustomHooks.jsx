@@ -1,4 +1,5 @@
 import { useCounter, useFetch } from "../hooks";
+import { LoadingQuote } from "./LoadingQuote";
 
 export const MultipleCustomHooks = () => {
 
@@ -14,11 +15,7 @@ export const MultipleCustomHooks = () => {
       {
         (isLoading)
           ? (
-            <div className="d-flex justify-content-center mt-4">
-              <div className="spinner-border" role="status">
-                <span className="visually-hidden">Cargando...</span>
-              </div>
-            </div>
+            <LoadingQuote />
           )
           : (
             <figure className="text-center mt-4">
