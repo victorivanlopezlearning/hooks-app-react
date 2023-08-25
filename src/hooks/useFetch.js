@@ -23,7 +23,10 @@ export const useFetch = (url) => {
         hasError: null,
       });
     } catch (error) {
-      console.log(error);
+      setState({
+        ...state,
+        hasError: error
+      });
     }
   };
 

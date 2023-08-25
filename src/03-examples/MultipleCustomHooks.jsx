@@ -4,7 +4,7 @@ import { LoadingQuote, Quote } from "./";
 export const MultipleCustomHooks = () => {
 
   const { counter, onAdd } = useCounter(1);
-  const { data, isLoading, hasError } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${counter}`);
+  const { data, isLoading } = useFetch(`https://api.breakingbadquotes.xyz/v1/quotes/${counter}`);
 
   const { author, quote } = !!data && data[0];
 
