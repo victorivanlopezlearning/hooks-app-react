@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { TodoItem } from './TodoItem';
 
 export const TodoList = ({ todos }) => {
@@ -22,3 +23,7 @@ export const TodoList = ({ todos }) => {
     </ul>
   )
 }
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
+};
