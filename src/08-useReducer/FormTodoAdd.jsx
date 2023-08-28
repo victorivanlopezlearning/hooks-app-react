@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { AlertError } from './AlertError';
 import { useForm } from '../hooks';
+import PropTypes from 'prop-types';
 
 export const FormTodoAdd = ({ addNewTodo }) => {
 
@@ -55,3 +56,7 @@ export const FormTodoAdd = ({ addNewTodo }) => {
     </form>
   )
 }
+
+FormTodoAdd.propTypes = {
+  addNewTodo: PropTypes.func.isRequired,
+};
