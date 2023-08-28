@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
 import { todoReducer } from './todoReducer';
 import { TodoList } from './TodoList';
+import { FormTodoAdd } from './FormTodoAdd';
 
 const initialState = [
   {
@@ -19,8 +20,8 @@ export const TodoApp = () => {
 
   const [todos, dispatchTodo] = useReducer(todoReducer, initialState);
 
-  const handleNewTodo = (todo) => {
-    console.log({ todo });
+  const addNewTodo = (newTodo) => {
+    console.log({ newTodo });
   };
 
   return (
@@ -30,25 +31,13 @@ export const TodoApp = () => {
       <div className="row">
         <div className="col-md-5">
           <h3 className='fw-bold'>Agregar nueva tarea</h3>
-          {/* FormTodoAdd onNewTodo(todo) */}
-          {/*   id: new Date().getTime(),
-                description: e.target.value,
-                done: false, */}
-          <form className='mb-3 mb-md-0'>
-            <div className="mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Escribe tú tarea"
-              />
-            </div>
-            <button type="submit" className="btn btn-outline-primary">Agregar tarea</button>
-          </form>
+        
+          <FormTodoAdd addNewTodo={addNewTodo} />
         </div>
 
         <div className="col-md-7">
           <h3 className='fw-bold'>Listado de tareas</h3>
-          
+
           <TodoList todos={todos} />
         </div>
       </div>
