@@ -5,16 +5,16 @@ import { useForm } from '../hooks';
 export const FormTodoAdd = ({ addNewTodo }) => {
 
   const { formState, onInputChange, onResetForm } = useForm({
-    descriptionTodo: ''
+    description: ''
   });
   const [error, setError] = useState(false);
 
-  const { descriptionTodo } = formState;
+  const { description } = formState;
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if ([descriptionTodo.trim()].includes('')) {
+    if ([description.trim()].includes('')) {
       setError(true);
       return;
     };
@@ -22,7 +22,7 @@ export const FormTodoAdd = ({ addNewTodo }) => {
 
     const newTodo = {
       id: new Date().getTime(),
-      description: descriptionTodo,
+      description,
       done: false,
     };
 
@@ -39,9 +39,9 @@ export const FormTodoAdd = ({ addNewTodo }) => {
         <input
           type="text"
           className="form-control"
-          name="descriptionTodo"
+          name="description"
           placeholder="Escribe tú tarea"
-          value={descriptionTodo}
+          value={description}
           onChange={onInputChange}
         />
       </div>
