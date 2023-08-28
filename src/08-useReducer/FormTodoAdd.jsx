@@ -1,17 +1,20 @@
-import { useState } from "react"
-import { AlertError } from "./AlertError";
+import { useState } from 'react'
+import { AlertError } from './AlertError';
+import { useForm } from '../hooks';
 
 export const FormTodoAdd = ({ addNewTodo }) => {
 
-  const [inputValue, setInputValue] = useState('');
+  const { formState, onInputChange, onResetForm } = useForm({
+    descriptionTodo: ''
+  });
   const [error, setError] = useState(false);
+
+  const { descriptionTodo } = formState;
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const descriptionTodo = inputValue.trim();
-
-    if ([descriptionTodo].includes('')) {
+    if ([descriptionTodo.trim()].includes('')) {
       setError(true);
       return;
     };
@@ -24,7 +27,7 @@ export const FormTodoAdd = ({ addNewTodo }) => {
     };
 
     addNewTodo(newTodo);
-    setInputValue('');
+    onResetForm();
   };
 
   return (
@@ -36,9 +39,10 @@ export const FormTodoAdd = ({ addNewTodo }) => {
         <input
           type="text"
           className="form-control"
+          name="descriptionTodo"
           placeholder="Escribe tú tarea"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          value={descriptionTodo}
+          onChange={onInputChange}
         />
       </div>
       <button
