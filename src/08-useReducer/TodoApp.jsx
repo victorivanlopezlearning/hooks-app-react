@@ -1,24 +1,23 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { todoReducer } from './todoReducer';
 import { TodoList } from './TodoList';
 import { FormTodoAdd } from './FormTodoAdd';
 
 const initialState = [
-  {
-    id: new Date().getTime(),
-    description: 'Localizar nave de Thor',
-    done: false,
-  },
-  {
-    id: new Date().getTime() * 3,
-    description: 'Recolectar gema del espacio',
-    done: false,
-  },
+
 ];
+
+const init = () => {
+  return JSON.parse(localStorage.getItem('todos') || []);
+};
 
 export const TodoApp = () => {
 
-  const [todos, dispatchTodo] = useReducer(todoReducer, initialState);
+  const [todos, dispatchTodo] = useReducer(todoReducer, initialState, init);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos) || []);
+  }, [todos]);
 
   const addNewTodo = (newTodo) => {
     const action = {
@@ -36,14 +35,14 @@ export const TodoApp = () => {
       <div className="row">
         <div className="col-md-5">
           <h3 className='fw-bold'>Agregar nueva tarea</h3>
-        
+
           <FormTodoAdd addNewTodo={addNewTodo} />
         </div>
 
         <div className="col-md-7">
           <h3 className='fw-bold'>Listado de tareas</h3>
 
-          <TodoList todos={todos} />
+          {todos.length ? <TodoList todos={todos} /> : <p>Agrega tu primer tarea.</p>}
         </div>
       </div>
 
