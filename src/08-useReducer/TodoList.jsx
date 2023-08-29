@@ -27,4 +27,5 @@ export const TodoList = ({ todos, removeTodo }) => {
 
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
+  removeTodo: PropTypes.func.isRequired,
 };

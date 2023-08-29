@@ -19,4 +19,5 @@ export const TodoItem = ({ todo, removeTodo }) => {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
+  removeTodo: PropTypes.func.isRequired,
 };
