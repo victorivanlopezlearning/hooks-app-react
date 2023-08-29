@@ -30,4 +30,6 @@ TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
   removeTodo: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
+  todosCount: PropTypes.func.isRequired,
+  pendingTodosCount: PropTypes.func.isRequired,
 };
