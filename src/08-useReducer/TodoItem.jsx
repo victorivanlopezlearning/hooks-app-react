@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
 
-export const TodoItem = ({ todo, removeTodo }) => {
+export const TodoItem = ({ todo, removeTodo, onToggleTodo }) => {
 
-  const { id, description } = todo;
+  const { id, description, done } = todo;
 
   return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
-      <span>{description}</span>
+      <span
+        className={`user-select-none ${(done) ? 'text-decoration-line-through text-secondary' : ''}`}
+        onDoubleClick={() => onToggleTodo(id)}
+      >
+        {description}
+      </span>
       <button
         className='btn btn-danger'
         onClick={() => removeTodo(id)}

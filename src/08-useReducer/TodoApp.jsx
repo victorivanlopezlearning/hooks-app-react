@@ -37,6 +37,15 @@ export const TodoApp = () => {
     dispatchTodo(action);
   };
 
+  const onToggleTodo = (id) => {
+    const action = {
+      type: 'Toggle Todo',
+      payload: id
+    };
+
+    dispatchTodo(action);
+  };
+
   return (
     <div className="container mt-5">
       <h1 className="text-center fw-bold mb-4 text-uppercase">TODO App</h1>
@@ -53,7 +62,11 @@ export const TodoApp = () => {
 
           {
             todos.length
-              ? <TodoList todos={todos} removeTodo={removeTodo} />
+              ? <TodoList
+                todos={todos}
+                removeTodo={removeTodo}
+                onToggleTodo={onToggleTodo}
+              />
               : <p>Agrega tu primer tarea.</p>
           }
         </div>
