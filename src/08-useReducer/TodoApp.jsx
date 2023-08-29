@@ -5,7 +5,7 @@ import { useTodos } from '../hooks';
 
 export const TodoApp = () => {
 
-  const { todos, addNewTodo, removeTodo, toggleTodo, todosCount } = useTodos();
+  const { todos, addNewTodo, removeTodo, toggleTodo, todosCount, pendingTodosCount } = useTodos();
 
   return (
     <div className="container mt-5">
@@ -28,6 +28,7 @@ export const TodoApp = () => {
                 removeTodo={removeTodo}
                 toggleTodo={toggleTodo}
                 todosCount={todosCount}
+                pendingTodosCount={pendingTodosCount}
               />
               : <p>Agrega tu primer tarea.</p>
           }

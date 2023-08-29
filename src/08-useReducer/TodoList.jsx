@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { TodoItem } from './TodoItem';
 
-export const TodoList = ({ todos, removeTodo, toggleTodo, todosCount }) => {
+export const TodoList = ({ todos, removeTodo, toggleTodo, todosCount, pendingTodosCount }) => {
   return (
     <ul className="list-group">
       {
@@ -17,9 +17,9 @@ export const TodoList = ({ todos, removeTodo, toggleTodo, todosCount }) => {
 
       <div className='mt-2'>
         <p className='fst-italic'>
-          <span>{todosCount()}</span> Total
+          <span>{todosCount}</span> Total
           -
-          <span>1</span> Pendiente(s)
+          <span>{pendingTodosCount}</span> Pendiente(s)
         </p>
       </div>
     </ul>
