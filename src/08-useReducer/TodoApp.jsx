@@ -28,6 +28,15 @@ export const TodoApp = () => {
     dispatchTodo(action);
   };
 
+  const removeTodo = (id) => {
+    const action = {
+      type: 'Remove Todo',
+      payload: id
+    };
+
+    dispatchTodo(action);
+  };
+
   return (
     <div className="container mt-5">
       <h1 className="text-center fw-bold mb-4 text-uppercase">TODO App</h1>
@@ -42,7 +51,11 @@ export const TodoApp = () => {
         <div className="col-md-7">
           <h3 className='fw-bold'>Listado de tareas</h3>
 
-          {todos.length ? <TodoList todos={todos} /> : <p>Agrega tu primer tarea.</p>}
+          {
+            todos.length
+              ? <TodoList todos={todos} removeTodo={removeTodo} />
+              : <p>Agrega tu primer tarea.</p>
+          }
         </div>
       </div>
 
