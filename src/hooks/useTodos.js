@@ -40,10 +40,13 @@ export const useTodos = () => {
     dispatchTodo(action);
   };
 
+  const todosCount = () => todos.length;
+
   return {
     todos,
     addNewTodo,
     removeTodo,
-    toggleTodo
+    toggleTodo,
+    todosCount
   }
 }
