@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const TodoItem = ({ todo, removeTodo, onToggleTodo }) => {
+export const TodoItem = ({ todo, removeTodo, toggleTodo }) => {
 
   const { id, description, done } = todo;
 
@@ -8,7 +8,7 @@ export const TodoItem = ({ todo, removeTodo, onToggleTodo }) => {
     <li className="list-group-item d-flex justify-content-between align-items-center">
       <span
         className={`user-select-none ${(done) ? 'text-decoration-line-through text-secondary' : ''}`}
-        onDoubleClick={() => onToggleTodo(id)}
+        onDoubleClick={() => toggleTodo(id)}
       >
         {description}
       </span>
@@ -25,5 +25,5 @@ export const TodoItem = ({ todo, removeTodo, onToggleTodo }) => {
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   removeTodo: PropTypes.func.isRequired,
-  onToggleTodo: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
 };

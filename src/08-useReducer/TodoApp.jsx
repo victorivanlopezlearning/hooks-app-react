@@ -3,9 +3,7 @@ import { todoReducer } from './todoReducer';
 import { TodoList } from './TodoList';
 import { FormTodoAdd } from './FormTodoAdd';
 
-const initialState = [
-
-];
+const initialState = [];
 
 const init = () => {
   return JSON.parse(localStorage.getItem('todos') || []);
@@ -37,7 +35,7 @@ export const TodoApp = () => {
     dispatchTodo(action);
   };
 
-  const onToggleTodo = (id) => {
+  const toggleTodo = (id) => {
     const action = {
       type: 'Toggle Todo',
       payload: id
@@ -65,7 +63,7 @@ export const TodoApp = () => {
               ? <TodoList
                 todos={todos}
                 removeTodo={removeTodo}
-                onToggleTodo={onToggleTodo}
+                toggleTodo={toggleTodo}
               />
               : <p>Agrega tu primer tarea.</p>
           }
