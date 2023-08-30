@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 export const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-lg mt-5'>
-      <div class="container-fluid">
-        <ul class="navbar-nav">
-          <li class="nav-item">
+      <div className="container-fluid">
+        <ul className="navbar-nav">
+          <li className="nav-item">
             <NavLink
               to="/" end
               className={({ isActive }) => isActive
@@ -15,7 +15,7 @@ export const Navbar = () => {
               Inicio
             </NavLink>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <NavLink
               to="/about"
               className={({ isActive }) => isActive
@@ -25,7 +25,7 @@ export const Navbar = () => {
               Nosotros
             </NavLink>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <NavLink
               to="/login"
               className={({ isActive }) => isActive
