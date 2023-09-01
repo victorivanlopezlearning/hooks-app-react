@@ -8,6 +8,7 @@ export const TodoItem = ({ todo, removeTodo, toggleTodo }) => {
     <li className="list-group-item d-flex justify-content-between align-items-center">
       <span
         className={`user-select-none ${(done) ? 'text-decoration-line-through text-secondary' : ''}`}
+        aria-label='span'
         onDoubleClick={() => toggleTodo(id)}
       >
         {description}
